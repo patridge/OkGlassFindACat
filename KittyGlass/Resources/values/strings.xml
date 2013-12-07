@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="find_kitty">Find a cat</string>
+    <string name="find_another_kitty">Find another cat</string>
+    <string name="finish">Stop</string>
+    <string name="app_name">KittyGlass</string>
+</resources>
