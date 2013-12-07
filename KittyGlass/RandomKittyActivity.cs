@@ -14,7 +14,7 @@ namespace KittyGlass {
     [Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/MenuTheme", Enabled = true)]
     [IntentFilter(new[] { "com.google.android.glass.action.VOICE_TRIGGER" })]
     [MetaData("com.google.android.glass.VoiceTrigger", Resource = "@xml/voice_trigger_start")]
-    public class RandomKittyActivity : Activity {
+    public class RandomKittyActivity : Activity, GestureDetector.IOnGestureListener {
         const string TAG = "RandomKittyActivity";
         const string kittyJpgUrl = "http://thecatapi.com/api/images/get?format=src&type=jpg";
 
