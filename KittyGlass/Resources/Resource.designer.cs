@@ -89,14 +89,17 @@ namespace KittyGlass
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090001
-			public const int another = 2131296257;
-			
 			// aapt resource value: 0x7f090002
-			public const int finish = 2131296258;
+			public const int another = 2131296258;
+			
+			// aapt resource value: 0x7f090003
+			public const int finish = 2131296259;
 			
 			// aapt resource value: 0x7f090000
 			public const int kittyImage = 2131296256;
+			
+			// aapt resource value: 0x7f090001
+			public const int kittyProgress = 2131296257;
 			
 			static Id()
 			{

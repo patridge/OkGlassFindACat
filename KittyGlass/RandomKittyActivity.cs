@@ -19,12 +19,14 @@ namespace KittyGlass {
         const string kittyJpgUrl = "http://thecatapi.com/api/images/get?format=src&type=jpg";
 
         ImageView kittyImageView;
+        ProgressBar kittyProgressBar;
         GestureDetector gestureDetector;
 
         protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.card_kitty);
             kittyImageView = (ImageView)FindViewById(Resource.Id.kittyImage);
+            kittyProgressBar = (ProgressBar)FindViewById(Resource.Id.kittyProgress);
             gestureDetector = new GestureDetector(this);
         }
 
@@ -36,10 +38,14 @@ namespace KittyGlass {
         }
         async Task PresentNewRandomKitty() {
             try {
+                kittyProgressBar.KeepScreenOn = true;
+                kittyProgressBar.Visibility = ViewStates.Visible;
                 var kittyBitmap = await GetRandomKitty();
                 if (kittyBitmap != null) {
                     kittyImageView.SetImageBitmap(kittyBitmap);
                 }
+                kittyProgressBar.Visibility = ViewStates.Invisible;
+                kittyProgressBar.KeepScreenOn = false;
             }
             catch {
                 kittyImageView.SetImageResource(Resource.Drawable.fallbackkitty1);
