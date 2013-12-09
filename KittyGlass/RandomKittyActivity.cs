@@ -54,6 +54,24 @@ namespace KittyGlass {
             }
         }
 
+        public override bool OnCreateOptionsMenu (IMenu menu) {
+            MenuInflater.Inflate(Resource.Menu.kitty, menu);
+            return true;
+        }
+        public override bool OnOptionsItemSelected (IMenuItem item) {
+            // Handle item selection.
+            switch (item.ItemId) {
+                case Resource.Id.another:
+                    PresentNewRandomKitty();
+                    return true;
+                case Resource.Id.finish:
+                    Finish();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected (item);
+            }
+        }
+
         // Until I can figure out how to tie an Activity to the gesture types mentioned on the GDK, this will do.
         public override bool OnGenericMotionEvent(MotionEvent e) {
             gestureDetector.OnTouchEvent(e);
