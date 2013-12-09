@@ -21,6 +21,7 @@ namespace KittyGlass {
         ImageView kittyImageView;
         ProgressBar kittyProgressBar;
         GestureDetector gestureDetector;
+        Bitmap currentDownloadedKitty;
 
         protected override void OnCreate(Bundle bundle) {
             base.OnCreate(bundle);
@@ -43,6 +44,11 @@ namespace KittyGlass {
                 var kittyBitmap = await GetRandomKitty();
                 if (kittyBitmap != null) {
                     kittyImageView.SetImageBitmap(kittyBitmap);
+                    if (currentDownloadedKitty != null) {
+                        currentDownloadedKitty.Dispose();
+                        currentDownloadedKitty = null;
+                    }
+                    currentDownloadedKitty = kittyBitmap;
                 }
                 kittyProgressBar.Visibility = ViewStates.Invisible;
                 kittyProgressBar.KeepScreenOn = false;
