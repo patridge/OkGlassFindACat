@@ -11,7 +11,7 @@ using Android.Util;
 using Android.Glass.Timeline;
 
 namespace KittyGlass {
-    [Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/MenuTheme", Enabled = true)]
+    [Activity(Icon = "@drawable/ic_cat", Label = "@string/app_name", MainLauncher = true, Theme = "@style/MenuTheme", Enabled = true)]
     [IntentFilter(new[] { "com.google.android.glass.action.VOICE_TRIGGER" })]
     [MetaData("com.google.android.glass.VoiceTrigger", Resource = "@xml/voice_trigger_start")]
     public class RandomKittyActivity : Activity, GestureDetector.IOnGestureListener {
