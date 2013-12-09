@@ -31,5 +31,7 @@ Obviously, there is much to do beyond here, both in incoporating Glass functiona
 
 * Incorporate live tile or mirror tile usage. Obviously, you should be able to save the best cat pictures to your timeline for fond memories later.
 * Glass-friendly gesture support. Simply implementing `GestureDetector.IOnGestureListener` doesn't seem to cut it. The `OnSingleTapUp` system seems to be insufficiently sensitive; you really have to tap with no movement to trigger the menu. The [GDK article on detecting gestures](https://developers.google.com/glass/develop/gdk/input/touch) mentions comparing a generic gesture to `gesture.TAP` (also `TWO_TAP`, `SWIPE_RIGHT`, and `SWIPE_LEFT`). I am guessing these gestures are based around a system with more tolerance for movement fluctuations.
-* Loading progress. While the cat picture is loaded asynchronously, you wouldn't know it by watching yet. Glass has a very specific styling for displaying progress of an ongoing task. I am guessing this is possible, but it [appears the GDK has not made it obvious yet](http://stackoverflow.com/q/20237873/48700). It could be as simple as dropping in a `ProgressBar` widget. I'll try that next.
-* Memory management. Loading additional cats does nothing with the previous `Bitmap`. That is most definitely bad and will be fixed.
+
+##Recent Additions
+* Loading progress. ProgressBar control worked just fine. It could look more Glass-like with some styling (read: thicker and white), but it is fine for now.
+* {fixed} Memory management. Loading additional cat now attempts to free up references to old one.
