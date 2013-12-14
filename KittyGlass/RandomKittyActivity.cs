@@ -33,6 +33,7 @@ namespace KittyGlass {
 
         static async Task<Bitmap> GetRandomKitty() {
             var httpClient = new HttpClient(new OkHttpNetworkHandler());
+            httpClient.Timeout = TimeSpan.FromSeconds(10);
             var imageBytes = await httpClient.GetByteArrayAsync(kittyJpgUrl);
             Bitmap imageBitmap = await BitmapFactory.DecodeByteArrayAsync(imageBytes, 0, imageBytes.Length);
             return imageBitmap;
