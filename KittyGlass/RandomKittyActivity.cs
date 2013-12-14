@@ -39,9 +39,9 @@ namespace KittyGlass {
             return imageBitmap;
         }
         async Task PresentNewRandomKitty() {
+            kittyProgressBar.KeepScreenOn = true;
+            kittyProgressBar.Visibility = ViewStates.Visible;
             try {
-                kittyProgressBar.KeepScreenOn = true;
-                kittyProgressBar.Visibility = ViewStates.Visible;
                 var kittyBitmap = await GetRandomKitty();
                 if (kittyBitmap != null) {
                     kittyImageView.SetImageBitmap(kittyBitmap);
@@ -51,12 +51,12 @@ namespace KittyGlass {
                     }
                     currentDownloadedKitty = kittyBitmap;
                 }
-                kittyProgressBar.Visibility = ViewStates.Invisible;
-                kittyProgressBar.KeepScreenOn = false;
             }
             catch {
                 kittyImageView.SetImageResource(Resource.Drawable.fallbackkitty1);
             }
+            kittyProgressBar.Visibility = ViewStates.Invisible;
+            kittyProgressBar.KeepScreenOn = false;
             kittyImageView.Visibility = ViewStates.Visible;
         }
         protected async override void OnResume() {
