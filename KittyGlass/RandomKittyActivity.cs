@@ -75,7 +75,9 @@ namespace KittyGlass {
             // Handle item selection.
             switch (item.ItemId) {
                 case Resource.Id.another:
+                    #pragma warning disable 4014
                     PresentNewRandomKitty();
+                    #pragma warning restore 4014
                     return true;
                 case Resource.Id.finish:
                     Finish();
